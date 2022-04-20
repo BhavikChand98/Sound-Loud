@@ -6,10 +6,10 @@ const asyncHandler = require('express-async-handler');
 const { setTokenCookie } = require('../../utils/auth.js');
 const { User } = require('../../db/models');
 
-// Test Route
-router.post('/test', function (req, res) {
-  res.json({ requestBody: req.body });
-});
+// // Test Route
+// router.post('/test', function (req, res) {
+//   res.json({ requestBody: req.body });
+// });
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
