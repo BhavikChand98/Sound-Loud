@@ -68,9 +68,6 @@ const validateLogin = [
   handleValidationErrors
 ];
 
-
-//TODO FIX ME
-//! I dont get bad request error
 // Log in
 router.post(
   '/',
