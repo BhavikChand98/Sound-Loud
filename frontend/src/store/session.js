@@ -37,24 +37,6 @@ export const login = (user) => async (dispatch) => {
 
 const initialState = { user: null };
 
-// Reducer
-const sessionReducer = (state = initialState, action) => {
-  let newState;
-  switch (action.type) {
-    case SET_USER:
-      newState = Object.assign({}, state);
-      newState.user = action.payload;
-      console.log(action.payload);
-      return newState;
-    case REMOVE_USER:
-      newState = Object.assign({}, state);
-      newState.user = null;
-      return newState;
-    default:
-      return state;
-  }
-};
-
 // Reducer?? After epiphany: I think this is a Thunk Bhav
 export const restoreUser = () => async dispatch => {
   const response = await csrfFetch('/api/session');
@@ -79,5 +61,30 @@ export const signup = (user) => async (dispatch) => {
   return response;
 };
 
+export const logout = () => async (dispatch) => {
+  const response = await csrfFetch('/api/session', {
+    method: 'DELETE',
+  });
+  dispatch(removeUser());
+  return response;
+};
+
+// Reducer
+const sessionReducer = (state = initialState, action) => {
+  let newState;
+  switch (action.type) {
+    case SET_USER:
+      newState = Object.assign({}, state);
+      newState.user = action.payload;
+      console.log(action.payload);
+      return newState;
+    case REMOVE_USER:
+      newState = Object.assign({}, state);
+      newState.user = null;
+      return newState;
+    default:
+      return state;
+  }
+};
+
 export default sessionReducer;
-//! File Doesn't Work, Jesse (prev, next state doesn't update)
