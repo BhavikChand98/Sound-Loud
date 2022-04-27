@@ -44,10 +44,6 @@ const validateSignup = [
   handleValidationErrors
 ];
 
-
-//TODO FIX ME
-//! Do not get Bad Request :(
-
 // Sign up
 router.post(
   '/',

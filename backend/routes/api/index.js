@@ -13,7 +13,23 @@ const { User } = require('../../db/models');
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
+//* Similar to pokedex practice
+const discoverRouter = require("./discover");
+router.use("/discover", discoverRouter);
 
+
+
+
+
+
+
+
+
+
+
+module.exports = router;
+
+//! References for testing Authentication
 // //* Testing Auth Middleware Routes
 // //* Test Set Token Cookie
 // // GET /api/set-token-cookie
@@ -50,8 +66,6 @@ router.use('/users', usersRouter);
 // );
 // //* Testing Auth Middleware Routes End
 
-router.post('/test', (req, res) => {
-  res.json({ requestBody: req.body });
-});
-
-module.exports = router;
+// router.post('/test', (req, res) => {
+//   res.json({ requestBody: req.body });
+// });

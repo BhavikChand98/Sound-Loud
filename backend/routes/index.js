@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const apiRouter = require('./api');
 
+//* similar to pokedex practice
 router.use('/api', apiRouter);
 
 router.post('/test', function(req, res) {
@@ -38,6 +39,9 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
+
+
+//! Keep this at the bottom I believe
 //? Back in the React frontend, this GET /api/csrf/restore route needs to be called when the application is loaded.
 // Add a XSRF-TOKEN cookie in development
 if (process.env.NODE_ENV !== 'production') {
